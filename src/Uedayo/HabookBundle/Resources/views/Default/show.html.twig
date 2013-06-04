@@ -1,4 +1,4 @@
-<h1>Who has this book?</h1>
+<h1>{{book.title}}</h1>
 <table>
     <tr>
         <td>Id</td>
@@ -9,19 +9,13 @@
         <td>created</td>
         <td>circulated</td>
     </tr>
-    {% for book in books %}
     <tr>
         <td>{{book.id}}</td>
-        <td><a href="{{ path('book_show', {'id':book.id}) }}">{{ book.title }}</a></td>
+        <td>{{book.title}}</td>
         <td>{{book.publisher}}</td>
         <td>{{book.smallImage}}</td>
         <td>{{book.publicatedAt|date('Y/m/d H:i')}}</td>
         <td>{{book.createdAt|date('Y/m/d H:i')}}</td>
         <td>{{book.updatedAt|date('Y/m/d H:i')}}</td>
     </tr>
-    {% else %}
-    <tr>
-        <td>No book found.</td>
-    </tr>
-    {% endfor %}
 </table>

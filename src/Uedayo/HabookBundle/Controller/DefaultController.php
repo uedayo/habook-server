@@ -11,14 +11,14 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $posts = $em->getRepository('UedayoHabookBundle:Book')->findAll();
-        return $this->render('UedayoHabookBundle:Default:index.html.twig', array('posts' => $posts));
+        $books = $em->getRepository('UedayoHabookBundle:Book')->findAll();
+        return $this->render('UedayoHabookBundle:Default:index.html.twig', array('books' => $books));
     }
 
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $post = $em->find('UedayoHabookBundle:Default:Book', $id);
-        return $this->render('UedayoHabookBundle:Default:index.html.twig', array('post' => $post));
+        $book = $em->find('UedayoHabookBundle:Book', $id);
+        return $this->render('UedayoHabookBundle:Default:show.html.twig', array('book' => $book));
     }
 }

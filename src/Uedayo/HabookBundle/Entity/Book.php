@@ -50,18 +50,11 @@ class Book
     private $medium_image;
 
     /**
-     * @var datetime $publication_date
+     * @var integer $listPrice
      *
-     * @ORM\Column(name="publication_date", type="datetime")
+     * @ORM\Column(name="listPrice", type="integer")
      */
-    private $publication_date;
-
-    /**
-     * @var integer $list_price
-     *
-     * @ORM\Column(name="list_price", type="integer")
-     */
-    private $list_price;
+    private $listPrice;
 
     /**
      * @var string $isbn
@@ -71,11 +64,11 @@ class Book
     private $isbn;
 
     /**
-     * @var text $detail_page_url
+     * @var text $detailPageUrl
      *
-     * @ORM\Column(name="detail_page_url", type="text")
+     * @ORM\Column(name="detailPageUrl", type="text")
      */
-    private $detail_page_url;
+    private $detailPageUrl;
 
     /**
      * @var integer $number
@@ -90,6 +83,13 @@ class Book
      * @ORM\Column(name="status", type="smallint", length=1)
      */
     private $status;
+
+    /**
+     * @var datetime $publicatedAt
+     *
+     * @ORM\Column(name="publicatedAt", type="datetime")
+     */
+    private $publicatedAt;
 
     /**
      * @var datetime $createdAt
@@ -197,43 +197,23 @@ class Book
     }
 
     /**
-     * Set publication_date
+     * Set listPrice
      *
-     * @param datetime $publicationDate
+     * @param integer $listPrice
      */
-    public function setPublicationDate($publicationDate)
+    public function setListPrice($listPrice)
     {
-        $this->publication_date = $publicationDate;
+        $this->listPrice = $listPrice;
     }
 
     /**
-     * Get publication_date
+     * Get listPrice
      *
-     * @return datetime 
-     */
-    public function getPublicationDate()
-    {
-        return $this->publication_date;
-    }
-
-    /**
-     * Set list_price
-     *
-     * @param int $listPrice
-     */
-    public function setListPrice(\int $listPrice)
-    {
-        $this->list_price = $listPrice;
-    }
-
-    /**
-     * Get list_price
-     *
-     * @return int 
+     * @return integer 
      */
     public function getListPrice()
     {
-        return $this->list_price;
+        return $this->listPrice;
     }
 
     /**
@@ -257,31 +237,31 @@ class Book
     }
 
     /**
-     * Set detail_page_url
+     * Set detailPageUrl
      *
      * @param text $detailPageUrl
      */
     public function setDetailPageUrl($detailPageUrl)
     {
-        $this->detail_page_url = $detailPageUrl;
+        $this->detailPageUrl = $detailPageUrl;
     }
 
     /**
-     * Get detail_page_url
+     * Get detailPageUrl
      *
      * @return text 
      */
     public function getDetailPageUrl()
     {
-        return $this->detail_page_url;
+        return $this->detailPageUrl;
     }
 
     /**
      * Set number
      *
-     * @param int $number
+     * @param integer $number
      */
-    public function setNumber(\int $number)
+    public function setNumber($number)
     {
         $this->number = $number;
     }
@@ -289,7 +269,7 @@ class Book
     /**
      * Get number
      *
-     * @return int 
+     * @return integer 
      */
     public function getNumber()
     {
@@ -314,6 +294,26 @@ class Book
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set publicatedAt
+     *
+     * @param datetime $publicatedAt
+     */
+    public function setPublicatedAt($publicatedAt)
+    {
+        $this->publicatedAt = $publicatedAt;
+    }
+
+    /**
+     * Get publicatedAt
+     *
+     * @return datetime 
+     */
+    public function getPublicatedAt()
+    {
+        return $this->publicatedAt;
     }
 
     /**
