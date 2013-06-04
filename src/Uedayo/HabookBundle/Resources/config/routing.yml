@@ -1,6 +1,3 @@
-UedayoHabookBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: UedayoHabookBundle:Default:index }
 book_index:
     pattern:  /
     defaults: { _controller: UedayoHabookBundle:Default:index }
