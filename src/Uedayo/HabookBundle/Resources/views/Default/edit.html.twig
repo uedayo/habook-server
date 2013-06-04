@@ -1,5 +1,9 @@
+{% extends 'UedayoHabookBundle::layout.html.twig' %}
+
+{% block body %}
 <h1>Edit Book</h1>
 <form action="{{ path('book_edit', {'id':book.id}) }}" method="post" {{form_enctype(form)}} novalidate>
     {{ form_widget(form) }}
     <input type="submit" value="Save Book" />
 </form>
+{% endblock %}
