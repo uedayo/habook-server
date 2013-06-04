@@ -36,18 +36,18 @@ class Book
     private $publisher;
 
     /**
-     * @var string $small_image
+     * @var string $smallImage
      *
-     * @ORM\Column(name="small_image", type="string", length=255)
+     * @ORM\Column(name="smallImage", type="string", length=255)
      */
-    private $small_image;
+    private $smallImage;
 
     /**
-     * @var string $medium_image
+     * @var string $mediumImage
      *
-     * @ORM\Column(name="medium_image", type="string", length=255)
+     * @ORM\Column(name="mediumImage", type="string", length=255)
      */
-    private $medium_image;
+    private $mediumImage;
 
     /**
      * @var integer $listPrice
@@ -85,11 +85,11 @@ class Book
     private $status;
 
     /**
-     * @var datetime $publicatedAt
+     * @var datetime $publishedAt
      *
-     * @ORM\Column(name="publicatedAt", type="datetime")
+     * @ORM\Column(name="publishedAt", type="datetime")
      */
-    private $publicatedAt;
+    private $publishedAt;
 
     /**
      * @var datetime $createdAt
@@ -157,43 +157,43 @@ class Book
     }
 
     /**
-     * Set small_image
+     * Set smallImage
      *
      * @param string $smallImage
      */
     public function setSmallImage($smallImage)
     {
-        $this->small_image = $smallImage;
+        $this->smallImage = $smallImage;
     }
 
     /**
-     * Get small_image
+     * Get smallImage
      *
      * @return string 
      */
     public function getSmallImage()
     {
-        return $this->small_image;
+        return $this->smallImage;
     }
 
     /**
-     * Set medium_image
+     * Set mediumImage
      *
      * @param string $mediumImage
      */
     public function setMediumImage($mediumImage)
     {
-        $this->medium_image = $mediumImage;
+        $this->mediumImage = $mediumImage;
     }
 
     /**
-     * Get medium_image
+     * Get mediumImage
      *
      * @return string 
      */
     public function getMediumImage()
     {
-        return $this->medium_image;
+        return $this->mediumImage;
     }
 
     /**
@@ -297,23 +297,23 @@ class Book
     }
 
     /**
-     * Set publicatedAt
+     * Set publishedAt
      *
-     * @param datetime $publicatedAt
+     * @param datetime $publishedAt
      */
-    public function setPublicatedAt($publicatedAt)
+    public function setPublishedAt($publishedAt)
     {
-        $this->publicatedAt = $publicatedAt;
+        $this->publishedAt = $publishedAt;
     }
 
     /**
-     * Get publicatedAt
+     * Get publishedAt
      *
      * @return datetime 
      */
-    public function getPublicatedAt()
+    public function getPublishedAt()
     {
-        return $this->publicatedAt;
+        return $this->publishedAt;
     }
 
     /**

@@ -28,8 +28,8 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder(new Book())
         ->add('title')
         ->add('publisher')
-        ->add('small_image')
-        ->add('medium_image')
+        ->add('smallImage')
+        ->add('mediumImage')
         ->add('listPrice')
         ->add('isbn')
         ->add('detailPageUrl')
@@ -40,7 +40,6 @@ class DefaultController extends Controller
 
         // validate
         $request = $this->getRequest();
-        echo "before POST<br />";
         if('POST' === $request->getMethod()) {
             $form->bindRequest($request);
             if($form->isValid()) {
