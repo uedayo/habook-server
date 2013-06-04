@@ -1,4 +1,4 @@
-<h1>Who has this book?</h1>
+<h1>Who has book?</h1>
 <table>
     <tr>
         <td>Id</td>
@@ -12,7 +12,9 @@
     {% for book in books %}
     <tr>
         <td>{{book.id}}</td>
-        <td><a href="{{ path('book_show', {'id':book.id}) }}">{{ book.title }}</a></td>
+        <td>
+            <a href="{{ path('book_show', {'id':book.id}) }}">{{ book.title }}</a>
+        </td>
         <td>{{book.publisher}}</td>
         <td>{{book.smallImage}}</td>
         <td>{{book.publicatedAt|date('Y/m/d H:i')}}</td>
@@ -25,3 +27,6 @@
     </tr>
     {% endfor %}
 </table>
+<div>
+    <a href="{{path('book_new')}}" >add book</a>
+</div>

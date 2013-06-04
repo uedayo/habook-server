@@ -1,0 +1,5 @@
+<h1>Add Book</h1>
+<form action="{{path('book_new')}}" method="post" {{form_enctype(form)}} novalidate>
+    {{form_widget(form)}}
+    <input type="submit" value="Save Book" />
+</form>

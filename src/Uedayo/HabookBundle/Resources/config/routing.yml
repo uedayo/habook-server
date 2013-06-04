@@ -4,3 +4,6 @@ book_index:
 book_show:
     pattern:  /{id}/show
     defaults: { _controller: UedayoHabookBundle:Default:show }
+book_new:
+    pattern: /new
+    defaults: { _controller: UedayoHabookBundle:Default:new }
