@@ -1,15 +1,21 @@
 book_index:
     pattern:  /
     defaults: { _controller: UedayoHabookBundle:Default:index }
-book_show:
-    pattern:  /{id}/show
-    defaults: { _controller: UedayoHabookBundle:Default:show }
 book_new:
     pattern: /new
     defaults: { _controller: UedayoHabookBundle:Default:new }
+book_show:
+    pattern:  /{id}/show
+    defaults: { _controller: UedayoHabookBundle:Default:show }
+    requirements:
+        id: \d+
 book_delete:
     pattern: /{id}/delete
     defaults: { _controller: UedayoHabookBundle:Default:delete }
+    requirements:
+        id: \d+
 book_edit:
     pattern: /{id}/edit
     defaults: { _controller: UedayoHabookBundle:Default:edit }
+    requirements:
+        id: \d+
