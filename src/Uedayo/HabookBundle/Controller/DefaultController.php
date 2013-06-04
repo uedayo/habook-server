@@ -26,17 +26,17 @@ class DefaultController extends Controller
     {
         // build
         $form = $this->createFormBuilder(new Book())
-        ->add('title')
-        ->add('publisher')
-        ->add('smallImage')
-        ->add('mediumImage')
-        ->add('listPrice')
-        ->add('isbn')
-        ->add('detailPageUrl')
-        ->add('number')
-        ->add('status')
-        ->add('publicatedAt')
-        ->getForm();
+            ->add('title')
+            ->add('publisher')
+            ->add('smallImage')
+            ->add('mediumImage')
+            ->add('listPrice')
+            ->add('isbn')
+            ->add('detailPageUrl')
+            ->add('number')
+            ->add('status')
+            ->add('publishedAt')
+            ->getForm();
 
         // validate
         $request = $this->getRequest();
@@ -60,7 +60,8 @@ class DefaultController extends Controller
         ));
     }
 
-    public function deleteAction($id) {
+    public function deleteAction($id)
+    {
         $em = $this->getDoctrine()->getEntityManager();
         $book = $em->find('UedayoHabookBundle:Book', $id);
         if(!$book) {
@@ -69,5 +70,47 @@ class DefaultController extends Controller
         $em->remove($book);
         $em->flush();
         return $this->redirect($this->generateUrl('book_index'));
+    }
+
+    public function editAction($id)
+    {
+        // select from DB
+        $em = $this->getDoctrine()->getEntityManager();
+        $book = $em->find('UedayoHabookBundle:Book', $id);
+        if (!$book) {
+            throw new NotFoundHttpException('The book does not exist.');
+        }
+
+        // build form
+        $form = $this->createFormBuilder($book)
+            ->add('title')
+            ->add('publisher')
+            ->add('smallImage')
+            ->add('mediumImage')
+            ->add('listPrice')
+            ->add('isbn')
+            ->add('detailPageUrl')
+            ->add('number')
+            ->add('status')
+            ->add('publishedAt')
+            ->getForm();
+
+        // validation
+        $request = $this->getRequest();
+        if ('POST' === $request->getMethod()) {
+            $form->bindRequest($request);
+            if ($form->isValid()) {
+                $book = $form->getData();
+                $book->setUpdatedAt(new \DateTime());
+                $em->flush();
+                return $this->redirect($this->generateUrl('book_index'));
+            }
+        }
+
+        // draw
+        return $this->render('UedayoHabookBundle:Default:edit.html.twig', array(
+            'book' => $book,
+            'form' => $form->createView(),
+        ));
     }
 }
