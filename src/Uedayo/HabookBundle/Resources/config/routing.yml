@@ -1,3 +1,9 @@
 UedayoHabookBundle_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: UedayoHabookBundle:Default:index }
+book_index:
+    pattern:  /
+    defaults: { _controller: UedayoHabookBundle:Default:index }
+book_show:
+    pattern:  /{id}/show
+    defaults: { _controller: UedayoHabookBundle:Default:show }

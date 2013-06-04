@@ -1,6 +1,6 @@
-UedayoHabookBundle:
+book:
     resource: "@UedayoHabookBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /book
 
 # Internal routing configuration to handle ESI
 # ****** WARNING ******
