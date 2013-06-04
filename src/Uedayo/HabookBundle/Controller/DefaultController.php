@@ -59,4 +59,15 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $book = $em->find('UedayoHabookBundle:Book', $id);
+        if(!$book) {
+            throw new NotFoundHttpException('The book does not exist.');
+        }
+        $em->remove($book);
+        $em->flush();
+        return $this->redirect($this->generateUrl('book_index'));
+    }
 }

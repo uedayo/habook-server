@@ -8,6 +8,7 @@
         <td>published</td>
         <td>created</td>
         <td>circulated</td>
+        <td>operation</td>
     </tr>
     {% for book in books %}
     <tr>
@@ -15,18 +16,19 @@
         <td>
             <a href="{{ path('book_show', {'id':book.id}) }}">{{ book.title }}</a>
         </td>
-        <td>{{book.publisher}}</td>
-        <td>{{book.smallImage}}</td>
-        <td>{{book.publishedAt|date('Y/m/d H:i')}}</td>
-        <td>{{book.createdAt|date('Y/m/d H:i')}}</td>
-        <td>{{book.updatedAt|date('Y/m/d H:i')}}</td>
+        <td>{{ book.publisher }}</td>
+        <td>{{ book.smallImage }}</td>
+        <td>{{ book.publishedAt|date('Y/m/d H:i') }}</td>
+        <td>{{ book.createdAt|date('Y/m/d H:i') }}</td>
+        <td>{{ book.updatedAt|date('Y/m/d H:i') }}</td>
+        <td><a href="{{ path('book_delete',{'id':book.id}) }}">Delete</a></td>
     </tr>
     {% else %}
     <tr>
-        <td>No book found.</td>
+        <td colspan="8">No books found.</td>
     </tr>
     {% endfor %}
 </table>
 <div>
-    <a href="{{path('book_new')}}" >add book</a>
+    <a href="{{ path('book_new') }}" >add book</a>
 </div>

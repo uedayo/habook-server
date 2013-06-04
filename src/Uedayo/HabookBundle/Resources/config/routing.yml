@@ -7,3 +7,6 @@ book_show:
 book_new:
     pattern: /new
     defaults: { _controller: UedayoHabookBundle:Default:new }
+book_delete:
+    pattern: /{id}/delete
+    defaults: { _controller: UedayoHabookBundle:Default:delete }
